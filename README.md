@@ -29,17 +29,11 @@ Test the C Program for the desired output.
 #include <sys/types.h>
 #include <unistd.h>
 int main(void)
-{	//variable to store calling function's process id
+{	
 	pid_t process_id;
-	//variable to store parent function's process id
 	pid_t p_process_id;
-	//getpid() - will return process id of calling function
 	process_id = getpid();
-	//getppid() - will return process id of parent function
 	p_process_id = getppid();
-	//printing the process ids
-
-//printing the process ids
 	printf("The process id: %d\n",process_id);
 	printf("The process id of parent function: %d\n",p_process_id);
 	return 0; }
@@ -93,12 +87,12 @@ int main() {
         exit(EXIT_FAILURE);
     } else if (pid == 0) {
         printf("This is the child process. Executing 'ls' command.\n");
-        execl("/bin/ls", "ls", "-l", NULL); // Lists files in long format
+        execl("/bin/ls", "ls", "-l", NULL); 
         perror("execl failed");
         exit(EXIT_FAILURE);
     } else {
         int status;
-        waitpid(pid, &status, 0); // Wait for the child to finish
+        waitpid(pid, &status, 0); 
         if (WIFEXITED(status)) {
             printf("Child process exited with status %d.\n", WEXITSTATUS(status));
         } else {
