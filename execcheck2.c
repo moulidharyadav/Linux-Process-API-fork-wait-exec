@@ -10,12 +10,12 @@ int main() {
         exit(EXIT_FAILURE);
     } else if (pid == 0) {
         printf("This is the child process. Executing 'ls' command.\n");
-        execl("/bin/ls", "ls", "-l", NULL);
+        execl("/bin/ls", "ls", "-l", NULL); // Lists files in long format
         perror("execl failed");
         exit(EXIT_FAILURE);
     } else {
         int status;
-        waitpid(pid, &status, 0);
+        waitpid(pid, &status, 0); // Wait for the child to finish
         if (WIFEXITED(status)) {
             printf("Child process exited with status %d.\n", WEXITSTATUS(status));
         } else {
