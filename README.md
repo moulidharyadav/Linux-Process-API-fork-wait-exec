@@ -116,4 +116,4 @@ int main() {
 
 
 # RESULT:
-Thus the programs are executed successfully.
+Thus the programs are executed successfully
